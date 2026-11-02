@@ -43,7 +43,7 @@ The browser can render it. The AI loader can search it.
 
 <br />
 
-## ✦ How it works
+## How it works
 
 <div align="center">
 
@@ -75,7 +75,7 @@ The loader does **not** dump the entire skill into the AI context. It finds the 
 
 <br />
 
-## ◌ Visual knowledge
+## Visual knowledge
 
 A normal text skill might say:
 
@@ -94,13 +94,13 @@ Images and other large assets can stay in an `assets/` folder while `skill.info`
 
 <br />
 
-## ✧ One file, two readers
+## One file, two readers
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### ◐ Browser
+### Browser
 
 Renders the skill like a webpage.
 
@@ -114,7 +114,7 @@ Renders the skill like a webpage.
 </td>
 <td width="50%" valign="top">
 
-### ✦ AI loader
+### AI loader
 
 Reads the skill as knowledge.
 
@@ -131,25 +131,25 @@ Reads the skill as knowledge.
 
 <br />
 
-## ☽ Project structure
+## ☾ Project structure
 
 ```text
 my-skill/
 │
-├── skill.info          ☾ main HTML skill
-├── loader.js           ✦ AI retrieval loader
+├── skill.info          main HTML skill
+├── loader.js           AI retrieval loader
 │
 └── assets/
-    ├── images/         ◌ screenshots + references
-    ├── diagrams/       ◇ visual explanations
-    ├── icons/          ✧ icon examples
-    ├── fonts/          Aa typography
-    └── data/           ≋ chart data
+    ├── images/         screenshots + references
+    ├── diagrams/       visual explanations
+    ├── icons/          icon examples
+    ├── fonts/          typography
+    └── data/           chart data
 ```
 
 <br />
 
-## ✦ Retrieval
+## Retrieval
 
 For a request like:
 
@@ -170,7 +170,7 @@ Only those useful sections need to reach the model.
 
 <br />
 
-## ◇ Files
+## Files
 
 | File | Purpose |
 | --- | --- |
@@ -198,6 +198,6 @@ A huge skill should **not** become a huge prompt.
 
 *HTML for humans · visual knowledge for AI*
 
-☾ ✦ ◌
+☾
 
 </div>

@@ -2,204 +2,202 @@
 
 <br />
 
-<pre>
-███████╗██╗  ██╗██╗██╗     ██╗         ██╗███╗   ██╗███████╗ ██████╗
-██╔════╝██║ ██╔╝██║██║     ██║         ██║████╗  ██║██╔════╝██╔═══██╗
-███████╗█████╔╝ ██║██║     ██║         ██║██╔██╗ ██║█████╗  ██║   ██║
-╚════██║██╔═██╗ ██║██║     ██║         ██║██║╚██╗██║██╔══╝  ██║   ██║
-███████║██║  ██╗██║███████╗███████╗    ██║██║ ╚████║██║     ╚██████╔╝
-╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝    ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝
-</pre>
+# ☾ Skill Info
 
-### A webpage that teaches AI how to do something.
+### A visual skill format for AI
 
-`skill.info` is a wrapped **index.html** file for AI skills.
+**A wrapped `index.html` that can teach AI with text, code, images, charts, and real visual references.**
 
-![HTML](https://img.shields.io/badge/HTML-native-0d1117?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-visual_knowledge-0d1117?style=for-the-badge&logo=css&logoColor=white)
-![Node](https://img.shields.io/badge/Loader-Node.js-0d1117?style=for-the-badge&logo=nodedotjs&logoColor=white)
+<br />
 
-**text · UI · images · charts · diagrams · code · references**
+<img alt="Skill Info" src="https://capsule-render.vercel.app/api?type=soft&height=180&text=skill.info&fontSize=58&fontAlignY=46&desc=HTML-native%20knowledge%20for%20AI&descAlignY=70&color=0:2b174d,45:6d3cc7,100:b78cff&fontColor=ffffff&animation=fadeIn" width="100%" />
+
+<br />
+
+![HTML](https://img.shields.io/badge/HTML-native-7c4dff?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-visual-9b6dff?style=flat-square&logo=css&logoColor=white)
+![AI](https://img.shields.io/badge/AI-readable-b58cff?style=flat-square)
+![Status](https://img.shields.io/badge/status-experimental-34234f?style=flat-square)
+
+`text` · `UI` · `images` · `charts` · `diagrams` · `code` · `references`
 
 </div>
 
----
+<br />
 
-### The idea
+## ☾ What is Skill Info?
 
-Most AI skill files are walls of text. **Skill Info is visual.**
+`skill.info` is basically an **HTML page made for AI knowledge**.
 
-You write the skill like a webpage. The browser can render it, while an AI loader can understand its sections and retrieve only what matters.
+Instead of putting everything into a giant Markdown file, you can build the skill using normal HTML and CSS. The skill can show real layouts, screenshots, charts, components, examples, diagrams, and rules.
 
-<table>
-<tr>
-<td width="33%" valign="top">
-
-#### 01 — Write
-
-Use normal HTML + CSS.
+The browser can render it. The AI loader can search it.
 
 ```html
-<section data-skill-entry
-  data-tags="button ui">
-  ...
+<section data-skill-entry data-tags="dashboard hierarchy spacing">
+  <h2>Dashboard hierarchy</h2>
+  <img src="assets/dashboard.png" alt="Dashboard example" />
+  <p data-tip>Keep the main action easy to find.</p>
 </section>
 ```
 
+<br />
+
+## ✦ How it works
+
+<div align="center">
+
+```text
+╭──────────────────────────────╮
+│          skill.info          │
+│                              │
+│  HTML · CSS · CODE · MEDIA   │
+╰──────────────┬───────────────╯
+               │
+               ▼
+╭──────────────────────────────╮
+│            loader            │
+│                              │
+│  search · rank · retrieve    │
+╰──────────────┬───────────────╯
+               │
+               ▼
+╭──────────────────────────────╮
+│           AI model           │
+│                              │
+│     useful pieces only       │
+╰──────────────────────────────╯
+```
+
+</div>
+
+The loader does **not** dump the entire skill into the AI context. It finds the sections related to the current task and loads only those pieces.
+
+<br />
+
+## ◌ Visual knowledge
+
+A normal text skill might say:
+
+> Use good dashboard hierarchy.
+
+A Skill Info file can actually include the dashboard reference, CSS, layout code, spacing rules, chart example, and explanation together.
+
+```html
+<figure data-skill-entry data-type="reference">
+  <img src="assets/reference.png" alt="UI reference" />
+  <figcaption>Reference showing the intended hierarchy.</figcaption>
+</figure>
+```
+
+Images and other large assets can stay in an `assets/` folder while `skill.info` points to them.
+
+<br />
+
+## ✧ One file, two readers
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### ◐ Browser
+
+Renders the skill like a webpage.
+
+- HTML layouts
+- CSS styling
+- images
+- SVG
+- charts
+- demos
+
 </td>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
-#### 02 — Retrieve
+### ✦ AI loader
 
-The loader searches tags, text, code, and metadata.
+Reads the skill as knowledge.
 
-It skips unrelated sections.
-
-</td>
-<td width="33%" valign="top">
-
-#### 03 — Build
-
-The AI receives a small packet with the useful rules, visuals, and examples.
+- searches tags
+- finds sections
+- reads rules
+- follows assets
+- ranks matches
+- builds context
 
 </td>
 </tr>
 </table>
 
-### One file. Two readers.
+<br />
 
-```text
-                         ┌───────────────────────────────┐
-                         │          skill.info           │
-                         │                               │
-                         │   HTML   CSS   DATA   MEDIA   │
-                         └───────────────┬───────────────┘
-                                         │
-                         ┌───────────────┴───────────────┐
-                         │                               │
-                         ▼                               ▼
-                 ┌───────────────┐               ┌───────────────┐
-                 │    Browser    │               │   AI Loader   │
-                 │               │               │               │
-                 │ renders skill │               │ finds context │
-                 └───────────────┘               └───────┬───────┘
-                                                         │
-                                                         ▼
-                                                 ┌───────────────┐
-                                                 │   AI model    │
-                                                 │ useful pieces │
-                                                 │     only      │
-                                                 └───────────────┘
-```
-
-### Visual knowledge is first-class
-
-A skill does not have to *describe* every visual. It can contain or reference the visual itself.
-
-```html
-<figure
-  data-skill-entry
-  data-type="reference"
-  data-tags="dashboard hierarchy spacing"
->
-  <img src="assets/dashboard.png" alt="Dashboard reference" />
-  <figcaption>
-    Keep the title, key metric, and primary action easy to scan.
-  </figcaption>
-</figure>
-```
-
-That same idea works for screenshots, SVG diagrams, chart data, UI states, icons, fonts, animations, and code demos.
-
-> **The point:** stop teaching visual work using only paragraphs.
-
-### What the AI actually sees
-
-The entire skill might be huge. The context should stay small.
-
-```text
-"Build a compact analytics dashboard"
-
-                  ↓ search
-
-┌─────────────────────────────────────────────┐
-│ MATCHES                                     │
-│                                             │
-│  dashboard-layout        98%                │
-│  metric-card             91%                │
-│  chart-spacing           86%                │
-│  primary-action          72%                │
-└─────────────────────────────────────────────┘
-
-                  ↓ retrieve
-
-        small AI context packet
-```
-
-The loader can search `data-tags`, headings, text, code, asset metadata, and other machine-readable attributes.
-
-### Anatomy of a Skill Info project
+## ☽ Project structure
 
 ```text
 my-skill/
 │
-├── skill.info              ← wrapped index.html
-├── loader.js               ← retrieval layer
+├── skill.info          ☾ main HTML skill
+├── loader.js           ✦ AI retrieval loader
 │
 └── assets/
-    ├── images/             ← screenshots + references
-    ├── diagrams/           ← flows + explanations
-    ├── icons/              ← visual vocabulary
-    ├── fonts/              ← typography references
-    └── data/               ← chart + example data
+    ├── images/         ◌ screenshots + references
+    ├── diagrams/       ◇ visual explanations
+    ├── icons/          ✧ icon examples
+    ├── fonts/          Aa typography
+    └── data/           ≋ chart data
 ```
 
-### Why HTML
+<br />
 
-<table>
-<tr><td><b>Structure</b></td><td>Headings, sections, figures, tables, code and metadata already exist.</td></tr>
-<tr><td><b>Visuals</b></td><td>Images, SVG, CSS, canvas and media can live beside the knowledge.</td></tr>
-<tr><td><b>Preview</b></td><td>The same skill can be opened and inspected visually.</td></tr>
-<tr><td><b>Extensible</b></td><td><code>data-*</code> attributes add AI metadata without replacing HTML.</td></tr>
-<tr><td><b>Portable</b></td><td>The core format is plain text and uses web standards.</td></tr>
-</table>
+## ✦ Retrieval
 
-### Repository
+For a request like:
 
-| | File | Role |
-|:--:|---|---|
-| ◈ | `skill.info` | The skill document |
-| ◫ | `index.html` | HTML example / preview |
-| ↳ | `loader.js` | Finds relevant knowledge |
-| ? | `README.md` | The format explained |
+```text
+Build a compact analytics dashboard
+```
 
-### Design rule
+The loader might find:
+
+```text
+dashboard-layout     ████████████████████  98%
+metric-card          ██████████████████    91%
+chart-spacing        █████████████████     86%
+primary-action       ██████████████        72%
+```
+
+Only those useful sections need to reach the model.
+
+<br />
+
+## ◇ Files
+
+| File | Purpose |
+| --- | --- |
+| `skill.info` | Main wrapped HTML skill |
+| `index.html` | Browser-friendly example |
+| `loader.js` | Searches and retrieves knowledge |
+| `README.md` | Explains the format |
+
+<br />
 
 <div align="center">
 
-## Store rich knowledge.<br/>Send small context.
+### ☾ Store rich knowledge. Send small context.
 
-A 2 GB skill should **not** become a 2 GB prompt.
+A huge skill should **not** become a huge prompt.
 
-</div>
-
-The skill stays on disk. The loader retrieves the few sections the model needs. Larger implementations can later use search indexes, embeddings, SQLite, or other retrieval systems without changing the basic idea.
-
----
+<br />
 
 > [!NOTE]
-> **Skill Info is an experimental format proposal.** It is not an industry standard yet.
-
-<div align="center">
+> Skill Info is currently an experimental format proposal, not an industry standard.
 
 <br />
 
-`<skill.info>`
+**`skill.info`**
 
-**HTML for humans. Structured knowledge for AI.**
+*HTML for humans · visual knowledge for AI*
 
-`</skill.info>`
-
-<br />
+☾ ✦ ◌
 
 </div>

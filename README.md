@@ -8,6 +8,8 @@
 
 ![HTML](https://img.shields.io/badge/HTML-native-6D45C7?style=flat-square&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-visual-825ED4?style=flat-square&logo=css&logoColor=white) ![Node](https://img.shields.io/badge/loader-Node.js-9876E2?style=flat-square&logo=nodedotjs&logoColor=white) ![Status](https://img.shields.io/badge/status-experimental-3B255B?style=flat-square)
 
+[![Support Development](https://img.shields.io/badge/Support%20Development-Donate-7651C9?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://nowpayments.io/donation/Support.Devs)
+
 </div>
 
 ---

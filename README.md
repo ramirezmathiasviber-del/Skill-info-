@@ -1,85 +1,158 @@
-# Skill Info
+<div align="center">
 
-`skill.info` is a proposed format for giving AI agents large, structured skill libraries without dumping the whole library into the model context.
+# ◇ Skill Info
 
-A skill can contain instructions, UI rules, code examples, design patterns, references, and pointers to assets such as images, icons, and fonts.
+### An HTML-native skill format for AI
 
-## The idea
+**Write knowledge like a webpage. Let AI read it like a skill.**
 
-Normal AI skill files can become one giant wall of text. That wastes context and becomes hard to search.
+![Status](https://img.shields.io/badge/status-experimental-111111?style=flat-square)
+![Format](https://img.shields.io/badge/format-HTML5-111111?style=flat-square)
+![Runtime](https://img.shields.io/badge/runtime-Node.js-111111?style=flat-square)
+![License](https://img.shields.io/badge/spec-open-111111?style=flat-square)
 
-Skill Info separates **storage** from **context**.
+`skill.info` • HTML • CSS • Images • Charts • Code • References
 
-The full skill can be very large. A loader reads the file, searches its entries, and sends only the useful pieces to the AI.
+</div>
+
+---
+
+## What is Skill Info?
+
+**Skill Info is a wrapped `index.html` file made for AI skills.**
+
+Instead of forcing a skill into one giant Markdown or JSON wall, the skill is written with normal HTML structure. That means a skill can contain real layouts, CSS, images, diagrams, charts, examples, code, documentation, and machine-readable metadata in one familiar format.
 
 ```text
-User request
-    ↓
-Skill loader
-    ↓
-Read skill.info metadata
-    ↓
-Search tags + text
-    ↓
-Select useful entries
-    ↓
-Build small context packet
-    ↓
-AI model
+┌─────────────────────────────────────────────┐
+│                 skill.info                  │
+│                                             │
+│  HTML structure      CSS visual knowledge  │
+│  Images + diagrams   Charts + examples     │
+│  Code patterns       Rules + references    │
+│                                             │
+└──────────────────────┬──────────────────────┘
+                       │
+                       ▼
+                 ┌──────────┐
+                 │  Loader  │
+                 └────┬─────┘
+                      │ finds relevant sections
+                      ▼
+                 ┌──────────┐
+                 │ AI model │
+                 └──────────┘
 ```
 
-## `skill.info`
+## Why HTML?
 
-The root `skill.info` file is JSON. It contains metadata, global instructions, searchable entries, and asset references.
+HTML already knows how to describe structured information.
 
-An entry can describe a component, layout, rule, example, reference, or other piece of knowledge.
+A heading is a heading. An image is an image. A code block is code. A figure can explain a layout. CSS can show how something should actually look. `data-*` attributes can add AI-specific tags without inventing another giant syntax.
 
-Example:
+```html
+<section
+  data-skill-entry
+  data-type="component"
+  data-tags="button primary action"
+>
+  <h2>Primary button</h2>
 
-```json
-{
-  "type": "component",
-  "name": "Primary Button",
-  "tags": ["button", "action"],
-  "html": "<button class=\"primary\">Continue</button>",
-  "css": ".primary { min-height:36px; padding:0 14px; }",
-  "tips": ["Use for the main action."]
-}
+  <button class="primary">Continue</button>
+
+  <p data-tip>Use one clear primary action per view.</p>
+</section>
 ```
 
-## Loader
+The file can still open like a normal webpage, while a loader can treat the same document as structured AI knowledge.
 
-`loader.js` is the reference loader in this repo.
+## How the loader works
 
-It does four basic things:
+The AI should **not** receive the whole skill every time.
 
-1. Opens `skill.info`.
-2. Breaks the user's request into search words.
-3. Scores entries using their name, type, tags, rules, tips, and code.
-4. Returns only the best matching entries plus the global instructions.
-
-This returned object is the **context packet**. An AI app can put that packet into its system/developer context before asking the model to complete the task.
-
-## Run it
-
-Node.js 18+ is enough. No packages are required.
-
-```bash
-node loader.js "design a dashboard with a primary button"
+```text
+USER TASK
+   │
+   ▼
+Parse skill.info
+   │
+   ▼
+Read entry metadata + data-tags
+   │
+   ▼
+Rank matching sections
+   │
+   ▼
+Collect useful HTML, rules and assets
+   │
+   ▼
+Small context packet
+   │
+   ▼
+AI
 ```
 
-The command prints JSON containing only the relevant skill knowledge.
+For example, a request for a dashboard button can load the button rules, dashboard layout rules, related CSS, and matching visual references while ignoring unrelated sections.
 
-## Why this matters
+## Visual knowledge
 
-A 2 GB skill should not mean sending 2 GB to an AI model. The loader should search the skill first. Only a small amount of relevant information reaches the model.
+Because the base format is HTML, a skill can point to visual material directly.
 
-For truly large skills, the same format can later use a real search index, embeddings, SQLite, or another database. The loader API can stay mostly the same.
+```html
+<figure data-skill-entry data-type="reference" data-tags="dashboard hierarchy">
+  <img src="assets/dashboard-example.png" alt="Dashboard hierarchy example">
+  <figcaption>
+    Keep the page title, main metric and primary action visually clear.
+  </figcaption>
+</figure>
+```
 
-## Assets
+Charts can use HTML/SVG/canvas or structured data. Fonts, screenshots, icons, and other large files should normally live in `assets/` and be referenced from the skill instead of being converted into huge text blobs.
 
-Do not normally place large images or fonts directly inside JSON. Reference them using a path, URI, or content hash. A future `.skill` container can package `skill.info`, the index, code, images, fonts, icons, and references into one portable file.
+## Suggested project structure
+
+```text
+my-skill/
+├── skill.info          ← HTML-native skill document
+├── loader.js           ← reads + retrieves useful knowledge
+└── assets/
+    ├── images/
+    ├── diagrams/
+    ├── icons/
+    ├── fonts/
+    └── data/
+```
+
+## Design goal
+
+> Store rich knowledge. Retrieve small context.
+
+A skill may eventually become hundreds of megabytes or more because of screenshots, fonts, references, examples, and datasets. That does **not** mean all of it belongs in the model context.
+
+The loader is the bridge between the large skill and the small amount of information the AI needs right now.
+
+## Files in this repo
+
+| File | Purpose |
+| --- | --- |
+| `skill.info` | Small format example / metadata prototype |
+| `index.html` | HTML-native skill example |
+| `loader.js` | Reference loader |
+| `README.md` | Format overview |
 
 ## Status
 
-This repository is an early format proposal and reference implementation. It is not an industry standard yet.
+> [!IMPORTANT]
+> Skill Info is currently an **experimental format proposal**, not an industry standard.
+
+The goal is to keep the format simple enough that a human can write it, a browser can understand it, and an AI tool can retrieve from it.
+
+---
+
+<div align="center">
+
+**◇ skill.info**
+
+*HTML for knowledge. Retrieval for AI.*
+
+</div>

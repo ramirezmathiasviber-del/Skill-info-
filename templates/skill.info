@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-skill="my-skill" data-skill-version="0.1">
+<head>
+  <meta charset="utf-8">
+  <meta name="skill-name" content="My Skill">
+  <meta name="skill-description" content="Describe what this skill teaches the AI and when to use it.">
+  <title>My Skill</title>
+  <style>
+    :root { --space: 16px; }
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 48px auto; padding: 0 24px; }
+    img { max-width: 100%; height: auto; }
+    .example { margin: 24px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Skill</h1>
+    <p>Human-readable description of the knowledge in this skill.</p>
+  </header>
+
+  <!-- Each searchable piece of knowledge is a skill entry. -->
+  <section data-skill-entry data-type="rule" data-tags="layout hierarchy spacing">
+    <h2>Layout hierarchy</h2>
+    <p data-rule>Keep the main action visually stronger than secondary actions.</p>
+  </section>
+
+  <!-- Images stay as normal files. Point to them with relative paths. -->
+  <section class="example" data-skill-entry data-type="reference" data-tags="dashboard reference">
+    <h2>Dashboard reference</h2>
+    <img src="assets/dashboard.png" alt="Dashboard showing clear title, metrics, and primary action">
+    <p data-rule>Use the image as a visual reference for hierarchy and spacing.</p>
+  </section>
+
+  <!-- Code examples can live beside the rule they demonstrate. -->
+  <section data-skill-entry data-type="component" data-tags="button primary action">
+    <h2>Primary action</h2>
+    <pre data-code>&lt;button class="primary"&gt;Continue&lt;/button&gt;</pre>
+    <p data-rule>Use one clear primary action per focused view.</p>
+  </section>
+
+  <!-- Structured data can be embedded without turning the whole file into JSON. -->
+  <section data-skill-entry data-type="chart" data-tags="chart hierarchy data">
+    <h2>Hierarchy example</h2>
+    <script type="application/json" data-chart-data>
+      {"type":"bar","data":[{"label":"Weak","value":35},{"label":"Strong","value":92}]}
+    </script>
+  </section>
+</body>
+</html>

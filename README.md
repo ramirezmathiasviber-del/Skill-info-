@@ -4,7 +4,7 @@
 
 ### HTML-native knowledge for AI
 
-`skill.info` keeps instructions, visuals, examples and code together, then retrieves only what the model needs.
+`skill.info` supercharges AI agents with reusable design taste, images, charts, examples, rules and important context without making you paste the same stuff into every chat thread.
 
 ![HTML](https://img.shields.io/badge/HTML-native-6D45C7?style=flat-square&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-visual-825ED4?style=flat-square&logo=css&logoColor=white) ![Node](https://img.shields.io/badge/loader-Node.js-9876E2?style=flat-square&logo=nodedotjs&logoColor=white) ![Status](https://img.shields.io/badge/status-experimental-3B255B?style=flat-square)
 
@@ -16,9 +16,13 @@
 
 ## The idea
 
-Most AI skills are text. `skill.info` is HTML underneath, so the same skill can hold rules, UI references, images, charts and working examples.
+Most AI skills are text. `skill.info` is HTML underneath, so one skill can hold rules, UI references, images, charts, code, examples and other useful knowledge in one place.
 
-The loader searches that file and sends only the useful parts to the model.
+Instead of pasting screenshots, design references, charts, examples or long explanations into every new thread, the agent can pull the useful parts from the skill when it needs them.
+
+That means the agent can keep stronger visual context and better design taste while the chat stays shorter and cleaner.
+
+The loader searches the file and sends only the useful parts to the model.
 
 ---
 
@@ -86,6 +90,8 @@ This means a new desktop coding app only needs a small target mapping added to t
 ![Text](https://img.shields.io/badge/text-rules-4A2A70?style=flat-square) ![Images](https://img.shields.io/badge/images-references-624093?style=flat-square) ![UI](https://img.shields.io/badge/UI-layouts-7854AE?style=flat-square) ![Charts](https://img.shields.io/badge/charts-data-8C69C5?style=flat-square) ![Code](https://img.shields.io/badge/code-examples-A080DB?style=flat-square)
 
 A visual reference can sit beside the rule that explains it. The AI gets the real example instead of only a text description.
+
+You can keep screenshots, UI references, diagrams, charts and other visual material inside the skill once, then reuse that knowledge across future agent work without pasting it again and again.
 
 ---
 

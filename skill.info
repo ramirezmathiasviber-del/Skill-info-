@@ -1,0 +1,45 @@
+{
+  "skill_info_version": "0.1",
+  "name": "UI Design",
+  "description": "A structured AI design knowledge file.",
+  "how_it_works": [
+    "Read metadata and instructions.",
+    "Search entries by type and tags.",
+    "Load only entries relevant to the current task.",
+    "Use code, layout rules, tips, and references together.",
+    "Do not load the entire file into model context unless it is small."
+  ],
+  "instructions": [
+    "Use clear visual hierarchy.",
+    "Keep spacing consistent.",
+    "Prefer real references when available.",
+    "Reuse proven component patterns."
+  ],
+  "entries": [
+    {
+      "type": "component",
+      "name": "Primary Button",
+      "tags": ["button", "action"],
+      "html": "<button class=\"primary\">Continue</button>",
+      "css": ".primary { min-height:36px; padding:0 14px; border-radius:6px; }",
+      "tips": ["Use for the main action.", "Avoid competing primary buttons."]
+    },
+    {
+      "type": "layout",
+      "name": "Dashboard",
+      "tags": ["dashboard", "layout"],
+      "rules": [
+        "Keep navigation stable.",
+        "Place the page title near the top.",
+        "Group related controls.",
+        "Use spacing before adding borders."
+      ]
+    }
+  ],
+  "assets": {
+    "note": "Large assets should normally be referenced by path, URI, hash, or external package instead of embedded as text.",
+    "images": [],
+    "fonts": [],
+    "references": []
+  }
+}

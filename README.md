@@ -14,9 +14,9 @@
 
 ## The idea
 
-Most AI skills are text. `skill.info` is HTML underneath, so knowledge can also include screenshots, layouts, charts, examples and code.
+Most AI skills are text. `skill.info` is HTML underneath, so the same skill can hold rules, UI references, images, charts and working examples.
 
-The loader searches the skill and gives the model only the parts that matter.
+The loader searches that file and sends only the useful parts to the model.
 
 ---
 
@@ -24,11 +24,26 @@ The loader searches the skill and gives the model only the parts that matter.
 
 <div align="center">
 
-### `skill.info`　→　`loader.js`　→　AI context
-
-<sub>rich knowledge　·　relevant retrieval　·　small context</sub>
+<table>
+<tr>
+<td align="center"><strong>skill.info</strong><br><sub>rich knowledge</sub></td>
+<td align="center">→</td>
+<td align="center"><strong>loader.js</strong><br><sub>search + retrieve</sub></td>
+<td align="center">→</td>
+<td align="center"><strong>AI context</strong><br><sub>only what matters</sub></td>
+</tr>
+</table>
 
 </div>
+
+The format stays visual for people while remaining searchable for AI.
+
+```html
+<section data-skill-entry data-tags="dashboard hierarchy spacing">
+  <img src="assets/dashboard.png" alt="Dashboard reference">
+  <p data-rule>Keep the main action easy to scan.</p>
+</section>
+```
 
 ---
 
@@ -36,7 +51,7 @@ The loader searches the skill and gives the model only the parts that matter.
 
 ![Text](https://img.shields.io/badge/text-rules-4A2A70?style=flat-square) ![Images](https://img.shields.io/badge/images-references-624093?style=flat-square) ![UI](https://img.shields.io/badge/UI-layouts-7854AE?style=flat-square) ![Charts](https://img.shields.io/badge/charts-data-8C69C5?style=flat-square) ![Code](https://img.shields.io/badge/code-examples-A080DB?style=flat-square)
 
-A visual reference can sit beside the rule that explains it. The AI gets the actual example instead of only a text description.
+A visual reference can sit beside the rule that explains it. The AI gets the real example instead of only a text description.
 
 ---
 
@@ -52,7 +67,7 @@ Only matching knowledge reaches the model.
 
 ## Files
 
-`skill.info` — knowledge  
+`skill.info` — main knowledge  
 `loader.js` — retrieval  
 `assets/` — visual references  
 `index.html` — optional preview

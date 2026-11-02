@@ -36,8 +36,6 @@ The loader searches that file and sends only the useful parts to the model.
 
 </div>
 
-The format stays visual for people while remaining searchable for AI.
-
 ```html
 <section data-skill-entry data-tags="dashboard hierarchy spacing">
   <img src="assets/dashboard.png" alt="Dashboard reference">
@@ -51,12 +49,11 @@ The format stays visual for people while remaining searchable for AI.
 
 **[Use the starter template](templates/skill.info)** — copy it and replace the example entries with your own knowledge.
 
-**[Read the usage guide](docs/USAGE.md)** — creating a skill, adding images, and using the format with Codex or Claude Code.
+**[Read the usage guide](docs/USAGE.md)** — creating a skill, adding images, and using the format with coding agents.
 
 ```text
 my-skill/
 ├── skill.info
-├── AGENTS.md
 ├── assets/
 │   └── dashboard.png
 └── loader.js
@@ -64,15 +61,21 @@ my-skill/
 
 Images are normal files. Put them in `assets/`, then reference them from `skill.info` with a relative `<img src="assets/...">` path.
 
-### Universal coding-agent adapter
+### Native adapter
 
-The repo now includes **[`AGENTS.md`](AGENTS.md)**. It is the compatibility layer for coding agents and desktop coding apps that understand the cross-tool `AGENTS.md` convention.
+**[`adapter/skill-info-adapter.js`](adapter/skill-info-adapter.js)** turns `skill.info` into the discovery format the coding app already understands while keeping `skill.info` as the source of truth.
 
-The adapter tells the agent to treat `skill.info` as HTML, search its tagged entries, follow matching rules, and load linked assets only when useful.
+```bash
+node adapter/skill-info-adapter.js . auto
+```
 
-For a new coding app that does not support `AGENTS.md`, point its project-instructions feature at `AGENTS.md`, or copy the small adapter into that app's own instruction file. `skill.info` stays the source of truth.
+`auto` detects the project when possible. You can also choose `codex`, `claude`, `cursor`, `copilot`, `gemini`, `opencode`, or `generic`.
 
-> `skill.info` is experimental. Coding tools do not natively discover this extension yet; the adapter connects it through normal project instructions.
+The adapter can generate native `SKILL.md`, Claude skill/instruction files, Cursor rules, Copilot instructions, Gemini instructions, OpenCode instructions, or a portable `AGENTS.md` fallback.
+
+This means a new desktop coding app only needs a small target mapping added to the adapter instead of changing the `skill.info` format.
+
+> `skill.info` is experimental. Coding tools do not natively recognize the extension itself yet; this adapter installs the native discovery layer for them.
 
 ---
 
@@ -97,7 +100,7 @@ Only matching knowledge reaches the model.
 ## Files
 
 `skill.info` — main knowledge  
-`AGENTS.md` — universal coding-agent adapter  
+`adapter/skill-info-adapter.js` — native coding-agent installer  
 `loader.js` — retrieval  
 `assets/` — visual references  
 `templates/skill.info` — clean starter  

@@ -21,9 +21,7 @@ A `skill.info` file is a wrapped `index.html` built to hold visual knowledge an 
 
 AI skills are usually long text files. That is fine for instructions, but bad for visual knowledge.
 
-**Skill Info makes the skill a webpage.**
-
-It can hold the rule, the code, and the visual reference in the same place.
+**Skill Info makes the skill a webpage.** It can hold the rule, the code, and the visual reference in the same place.
 
 ```html
 <section data-skill-entry data-tags="dashboard hierarchy spacing">
@@ -37,27 +35,37 @@ The AI does not need to guess what the design should look like. The reference ca
 
 ---
 
-## How it works
+## ☾ How it works
 
-**1. Write** — Build the skill with normal HTML and CSS. Add rules, examples, screenshots, charts, diagrams, code, and metadata.
+<table>
+<tr>
+<td align="center" width="24%">
+<br />
+<strong>01</strong><br /><br />
+<code>skill.info</code><br />
+<sub>HTML · CSS · visual knowledge</sub>
+<br /><br />
+</td>
+<td align="center" width="14%"><strong>→</strong><br /><sub>search</sub></td>
+<td align="center" width="24%">
+<br />
+<strong>02</strong><br /><br />
+<code>loader.js</code><br />
+<sub>tags · rules · metadata</sub>
+<br /><br />
+</td>
+<td align="center" width="14%"><strong>→</strong><br /><sub>retrieve</sub></td>
+<td align="center" width="24%">
+<br />
+<strong>03</strong><br /><br />
+<strong>AI context</strong><br />
+<sub>only useful knowledge</sub>
+<br /><br />
+</td>
+</tr>
+</table>
 
-**2. Find** — `loader.js` searches tags, headings, text, rules, code, and asset metadata for the current task.
-
-**3. Use** — Only the best matching pieces are sent to the AI. Everything else stays out of context.
-
-```text
-skill.info
-    ↓
-search the skill
-    ↓
-loader.js
-    ↓
-select useful knowledge
-    ↓
-small context packet
-    ↓
-AI model
-```
+<br />
 
 > **Storage can be rich. Context stays small.**
 
@@ -75,10 +83,7 @@ The skill can include the real reference beside the rule:
 <figure data-skill-entry
         data-type="reference"
         data-tags="dashboard hierarchy">
-
-  <img src="assets/dashboard.png"
-       alt="Dashboard hierarchy reference" />
-
+  <img src="assets/dashboard.png" alt="Dashboard hierarchy reference" />
   <figcaption data-rule>
     The page title leads. Metrics come second. Actions stay obvious.
   </figcaption>
@@ -89,34 +94,41 @@ This can work with screenshots, UI states, SVG diagrams, charts, typography, ico
 
 ---
 
-## Two readers. One file.
+## ☾ Two readers. One file.
 
-### Browser
-
-Open the skill visually like a webpage. See its layouts, CSS, images, charts, and examples.
-
-### AI loader
-
-Read the same file as structured knowledge. Search `data-tags`, headings, rules, code, and assets without loading everything.
+<table>
+<tr>
+<td width="50%" valign="top">
+<br />
+<strong>Browser</strong>
+<br /><br />
+See the skill as a real visual document.<br /><br />
+<sub>layouts · CSS · images · charts · examples</sub>
+<br /><br />
+</td>
+<td width="50%" valign="top">
+<br />
+<strong>AI loader</strong>
+<br /><br />
+Search the same file as structured knowledge.<br /><br />
+<sub>tags · headings · rules · code · assets</sub>
+<br /><br />
+</td>
+</tr>
+</table>
 
 ---
 
-## Retrieval
+## ☾ Retrieval
 
-If the task is:
+For a task like **“Build a compact analytics dashboard”**, the loader can narrow a huge skill down to the strongest matches.
 
-```text
-Build a compact analytics dashboard
-```
-
-The loader can narrow a huge skill down to something like:
-
-```text
-dashboard-layout    98%
-metric-card         91%
-chart-spacing       86%
-primary-action      72%
-```
+<table>
+<tr><td><strong>dashboard-layout</strong></td><td width="65%">████████████████████</td><td align="right"><strong>98%</strong></td></tr>
+<tr><td><strong>metric-card</strong></td><td>██████████████████</td><td align="right"><strong>91%</strong></td></tr>
+<tr><td><strong>chart-spacing</strong></td><td>█████████████████</td><td align="right"><strong>86%</strong></td></tr>
+<tr><td><strong>primary-action</strong></td><td>██████████████</td><td align="right"><strong>72%</strong></td></tr>
+</table>
 
 Only those matching sections need to reach the model.
 
@@ -124,24 +136,12 @@ Only those matching sections need to reach the model.
 
 ## ☾ Project structure
 
-```text
-my-skill/
-│
-├── skill.info          main HTML-native skill
-├── loader.js           retrieval layer
-│
-└── assets/
-    ├── images/         screenshots + references
-    ├── diagrams/       visual explanations
-    ├── icons/          icon references
-    ├── fonts/          typography assets
-    └── data/           charts + example data
-```
-
-`skill.info` — the knowledge document  
-`loader.js` — finds the useful parts  
-`index.html` — optional browser preview  
-`README.md` — explains the format
+<table>
+<tr><td><code>skill.info</code></td><td><strong>Main knowledge</strong><br /><sub>HTML-native skill with rules, visuals and examples</sub></td></tr>
+<tr><td><code>loader.js</code></td><td><strong>Retrieval layer</strong><br /><sub>finds and ranks useful parts</sub></td></tr>
+<tr><td><code>assets/</code></td><td><strong>Visual library</strong><br /><sub>images, diagrams, icons, fonts and chart data</sub></td></tr>
+<tr><td><code>index.html</code></td><td><strong>Preview</strong><br /><sub>optional browser-friendly view</sub></td></tr>
+</table>
 
 ---
 

@@ -47,6 +47,26 @@ The format stays visual for people while remaining searchable for AI.
 
 ---
 
+## Start building
+
+**[Use the starter template](templates/skill.info)** — copy it and replace the example entries with your own knowledge.
+
+**[Read the usage guide](docs/USAGE.md)** — creating a skill, adding images, and using the format with Codex or Claude Code.
+
+```text
+my-skill/
+├── skill.info
+├── assets/
+│   └── dashboard.png
+└── loader.js
+```
+
+Images are normal files. Put them in `assets/`, then reference them from `skill.info` with a relative `<img src="assets/...">` path.
+
+> `skill.info` is experimental. Codex and Claude Code do not natively discover this extension yet. The usage guide shows how to connect it through their normal project/skill instructions.
+
+---
+
 ## What it can hold
 
 ![Text](https://img.shields.io/badge/text-rules-4A2A70?style=flat-square) ![Images](https://img.shields.io/badge/images-references-624093?style=flat-square) ![UI](https://img.shields.io/badge/UI-layouts-7854AE?style=flat-square) ![Charts](https://img.shields.io/badge/charts-data-8C69C5?style=flat-square) ![Code](https://img.shields.io/badge/code-examples-A080DB?style=flat-square)
@@ -70,6 +90,8 @@ Only matching knowledge reaches the model.
 `skill.info` — main knowledge  
 `loader.js` — retrieval  
 `assets/` — visual references  
+`templates/skill.info` — clean starter  
+`docs/USAGE.md` — setup + agent guide  
 `index.html` — optional preview
 
 ---

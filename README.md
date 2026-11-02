@@ -56,6 +56,7 @@ The format stays visual for people while remaining searchable for AI.
 ```text
 my-skill/
 ├── skill.info
+├── AGENTS.md
 ├── assets/
 │   └── dashboard.png
 └── loader.js
@@ -63,7 +64,15 @@ my-skill/
 
 Images are normal files. Put them in `assets/`, then reference them from `skill.info` with a relative `<img src="assets/...">` path.
 
-> `skill.info` is experimental. Codex and Claude Code do not natively discover this extension yet. The usage guide shows how to connect it through their normal project/skill instructions.
+### Universal coding-agent adapter
+
+The repo now includes **[`AGENTS.md`](AGENTS.md)**. It is the compatibility layer for coding agents and desktop coding apps that understand the cross-tool `AGENTS.md` convention.
+
+The adapter tells the agent to treat `skill.info` as HTML, search its tagged entries, follow matching rules, and load linked assets only when useful.
+
+For a new coding app that does not support `AGENTS.md`, point its project-instructions feature at `AGENTS.md`, or copy the small adapter into that app's own instruction file. `skill.info` stays the source of truth.
+
+> `skill.info` is experimental. Coding tools do not natively discover this extension yet; the adapter connects it through normal project instructions.
 
 ---
 
@@ -88,6 +97,7 @@ Only matching knowledge reaches the model.
 ## Files
 
 `skill.info` — main knowledge  
+`AGENTS.md` — universal coding-agent adapter  
 `loader.js` — retrieval  
 `assets/` — visual references  
 `templates/skill.info` — clean starter  

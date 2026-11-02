@@ -1,45 +1,42 @@
-{
-  "skill_info_version": "0.1",
-  "name": "UI Design",
-  "description": "A structured AI design knowledge file.",
-  "how_it_works": [
-    "Read metadata and instructions.",
-    "Search entries by type and tags.",
-    "Load only entries relevant to the current task.",
-    "Use code, layout rules, tips, and references together.",
-    "Do not load the entire file into model context unless it is small."
-  ],
-  "instructions": [
-    "Use clear visual hierarchy.",
-    "Keep spacing consistent.",
-    "Prefer real references when available.",
-    "Reuse proven component patterns."
-  ],
-  "entries": [
-    {
-      "type": "component",
-      "name": "Primary Button",
-      "tags": ["button", "action"],
-      "html": "<button class=\"primary\">Continue</button>",
-      "css": ".primary { min-height:36px; padding:0 14px; border-radius:6px; }",
-      "tips": ["Use for the main action.", "Avoid competing primary buttons."]
-    },
-    {
-      "type": "layout",
-      "name": "Dashboard",
-      "tags": ["dashboard", "layout"],
-      "rules": [
-        "Keep navigation stable.",
-        "Place the page title near the top.",
-        "Group related controls.",
-        "Use spacing before adding borders."
-      ]
-    }
-  ],
-  "assets": {
-    "note": "Large assets should normally be referenced by path, URI, hash, or external package instead of embedded as text.",
-    "images": [],
-    "fonts": [],
-    "references": []
-  }
-}
+<!doctype html>
+<html lang="en" data-skill="ui-design" data-skill-version="0.2">
+<head>
+  <meta charset="utf-8">
+  <meta name="skill-name" content="UI Design">
+  <meta name="skill-description" content="Visual UI design knowledge, references, rules, and examples for AI agents.">
+  <title>UI Design Skill</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 48px auto; padding: 0 24px; }
+    img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UI Design</h1>
+    <p>Visual design knowledge that can be searched entry by entry.</p>
+  </header>
+
+  <section data-skill-entry data-type="instruction" data-tags="loader retrieval context">
+    <h2>How to use this skill</h2>
+    <p data-rule>Search tags and entries first. Load only knowledge relevant to the current task.</p>
+    <p data-rule>Inspect linked visual references when they help answer the task.</p>
+  </section>
+
+  <section data-skill-entry data-type="component" data-tags="button primary action hierarchy">
+    <h2>Primary button</h2>
+    <p data-rule>Use the primary style for the main action. Avoid multiple competing primary actions in one focused view.</p>
+    <pre data-code>&lt;button class="primary"&gt;Continue&lt;/button&gt;</pre>
+  </section>
+
+  <section data-skill-entry data-type="layout" data-tags="dashboard layout hierarchy spacing">
+    <h2>Dashboard</h2>
+    <p data-rule>Keep navigation stable, place the page title near the top, group related controls, and use spacing before adding borders.</p>
+  </section>
+
+  <section data-skill-entry data-type="reference" data-tags="image visual reference dashboard">
+    <h2>Visual references</h2>
+    <p data-rule>Store images in assets/ and reference them with normal relative HTML paths.</p>
+    <img src="assets/example-ui.png" alt="Example UI reference for hierarchy and spacing">
+  </section>
+</body>
+</html>

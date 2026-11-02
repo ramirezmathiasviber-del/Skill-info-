@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-skill="ui-design" data-skill-version="0.2">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UI Design Skill</title>
+  <meta name="description" content="A human-readable and AI-readable UI design skill built with HTML and CSS.">
+  <style>
+    :root{font-family:Inter,system-ui,sans-serif;color:#171717;background:#fff}*{box-sizing:border-box}body{margin:0;padding:32px;max-width:1100px;margin-inline:auto}header{margin-bottom:32px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card{border:1px solid #ddd;border-radius:10px;padding:18px;margin:14px 0}h1,h2,h3{margin:0 0 10px}p{line-height:1.55;color:#555}pre{overflow:auto;background:#f6f6f6;padding:14px;border-radius:8px}img{max-width:100%;height:auto;border-radius:8px}.chart{display:flex;align-items:end;gap:8px;height:150px;border-left:1px solid #ccc;border-bottom:1px solid #ccc;padding:10px}.bar{flex:1;background:#222;min-width:28px}.label{font-size:12px;color:#666}.asset{margin-top:12px}
+  </style>
+</head>
+<body>
+<header data-skill-section="about" data-tags="format instructions loader">
+  <h1>UI Design Skill</h1>
+  <p>This file is both documentation and structured knowledge. A person can open it in a browser. An AI loader can parse the HTML, search tags, read rules, inspect examples, and discover images or chart data without loading everything at once.</p>
+</header>
+
+<main id="skill-knowledge">
+  <section class="card" data-skill-entry data-type="instruction" data-tags="loader ai retrieval">
+    <h2>How AI should read this file</h2>
+    <ol>
+      <li>Parse the HTML instead of treating it as one giant text block.</li>
+      <li>Find elements marked <code>data-skill-entry</code>.</li>
+      <li>Search <code>data-tags</code>, headings, and text for the current task.</li>
+      <li>Read only the best matching entries.</li>
+      <li>Collect linked images, examples, chart data, and rules from those entries.</li>
+      <li>Return the selected knowledge to the AI as context.</li>
+    </ol>
+  </section>
+
+  <section class="grid">
+    <article class="card" data-skill-entry data-type="component" data-tags="button primary action hierarchy">
+      <h2>Primary button</h2>
+      <p data-rule>Use one clear primary action in an area. Avoid multiple buttons fighting for attention.</p>
+      <button style="min-height:36px;padding:0 14px;border:0;border-radius:6px;background:#171717;color:white">Continue</button>
+      <pre data-code>&lt;button class="primary"&gt;Continue&lt;/button&gt;</pre>
+    </article>
+
+    <article class="card" data-skill-entry data-type="layout" data-tags="dashboard layout spacing hierarchy">
+      <h2>Dashboard layout</h2>
+      <p data-rule>Keep navigation stable. Put the page title near the top. Group related controls. Use spacing before adding borders.</p>
+    </article>
+  </section>
+
+  <section class="card" data-skill-entry data-type="image-reference" data-tags="image reference visual example">
+    <h2>Images and visual references</h2>
+    <p>Images can live inside the repo or use a URL. The loader reads the image path, alt text, caption, and nearby rules. Replace the example path with real references as the skill grows.</p>
+    <figure class="asset" data-asset-type="image">
+      <img src="assets/example-ui.png" alt="Example UI reference showing clean hierarchy and spacing" loading="lazy">
+      <figcaption>Reference: study hierarchy, spacing, grouping, and control size.</figcaption>
+    </figure>
+  </section>
+
+  <section class="card" data-skill-entry data-type="chart" data-tags="chart data visualization comparison">
+    <h2>Chart knowledge</h2>
+    <p data-rule>Use bars for category comparisons and lines for ordered trends. Keep labels readable and remove decoration that does not help understanding.</p>
+    <script type="application/json" data-chart-data>
+      {"type":"bar","title":"Example hierarchy score","data":[{"label":"Weak","value":35},{"label":"Good","value":70},{"label":"Strong","value":92}]}
+    </script>
+    <div class="chart" aria-label="Example bar chart">
+      <div class="bar" style="height:35%" title="Weak 35"></div>
+      <div class="bar" style="height:70%" title="Good 70"></div>
+      <div class="bar" style="height:92%" title="Strong 92"></div>
+    </div>
+    <p class="label">The JSON is machine-readable. The HTML is human-readable.</p>
+  </section>
+
+  <section class="card" data-skill-entry data-type="schema" data-tags="schema format extension">
+    <h2>Entry format</h2>
+    <pre>&lt;section data-skill-entry data-type="layout" data-tags="dashboard spacing"&gt;
+  &lt;h2&gt;Dashboard&lt;/h2&gt;
+  &lt;p data-rule&gt;Rule the AI should learn.&lt;/p&gt;
+  &lt;img src="assets/reference.png" alt="Useful description"&gt;
+&lt;/section&gt;</pre>
+    <p>Add as many entries as needed. Large libraries can split knowledge into more HTML files and let the loader fetch them only when needed.</p>
+  </section>
+</main>
+
+<script src="loader.js"></script>
+</body>
+</html>
